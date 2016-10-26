@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">STOCK ITEM</a>
+                <a class="navbar-brand" href="home">STOCK ITEM</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
