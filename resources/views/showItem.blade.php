@@ -194,31 +194,35 @@
                     <h4 class="modal-title">Add Stock</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action ="http://localhost/setest/public/addItem">
                         <div class="form-group">
                             <label for="Product">Product:</label>
-                            <input type="text" class="form-control" id="Product" placeholder="Enter Product name">
+                            <input type="text" class="form-control" id="Product" placeholder="Enter Product name" name = "product">
                         </div>
                         <div class="form-group">
-                            <label for="Type">Type:</label>
-                            <input type="text" class="form-control" id="Type" placeholder="Enter Product Type">
+                            <label for="Type">Unit:</label>
+                            <input type="text" class="form-control" id="Type" placeholder="Enter Product Type" name = "unit">
                         </div>
-                        <div class="form-group">
-                            <label for="Price">Price:</label>
-                            <input type="text" class="form-control" id="Price" placeholder="Enter Product Price">
+                         <div class="form-group">
+                            <label for="Quentity">Cost:</label>
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="cost">
                         </div>
-                        <div class="form-group">
-                            <label for="Principle">Principle:</label>
-                            <input type="text" class="form-control" id="Principle" placeholder="Enter Product Principle">
+                         <div class="form-group">
+                            <label for="Quentity">Price:</label>
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="price">
+                        </div>
+                         <div class="form-group">
+                            <label for="Quentity">Catagory:</label>
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="catagory">
                         </div>
                         <div class="form-group">
                             <label for="Quentity">Quentity:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity">
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="quentity">
+                        </div>
+                        <div class="form-group">
+                            <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON><input name="_token" type="hidden" value="{{ csrf_token() }}">
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-default">Submit</button>
                 </div>
             </div>
         </div>

@@ -278,8 +278,11 @@ class ComposerStaticInit668028df1f082a4137e372487bafb66b
     );
 
     public static $classMap = array (
+        'AddShopIDCollum' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_134448_add_shopID_collum.php',
+        'AddShopIDCollum2' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_134904_add_shopID_collum2.php',
+        'CreateCommentTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_110735_create_comment_table.php',
+        'CreateItemkeepTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_110747_create_itemkeep_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-        'CreateUserTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_085127_create_user_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

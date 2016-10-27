@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddShopIDCollum' => $baseDir . '/database/migrations/2016_10_27_134448_add_shopID_collum.php',
+    'AddShopIDCollum2' => $baseDir . '/database/migrations/2016_10_27_134904_add_shopID_collum2.php',
+    'CreateCommentTable' => $baseDir . '/database/migrations/2016_10_27_110735_create_comment_table.php',
+    'CreateItemkeepTable' => $baseDir . '/database/migrations/2016_10_27_110747_create_itemkeep_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-    'CreateUserTable' => $baseDir . '/database/migrations/2016_10_27_085127_create_user_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
