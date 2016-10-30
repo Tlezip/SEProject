@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/home', function(){
@@ -25,3 +25,6 @@ Route::get('/showItem', function(){
 Route::get('/login', function(){
 	return view('login');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
