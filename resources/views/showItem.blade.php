@@ -99,7 +99,7 @@
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i>  ITEM <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">
                         <li>
-                            <a href="#">ALL Item</a>
+                            <a href="http://localhost/setest/public/allItem">ALL Item</a>
                         </li>
                         <li>
                             <a href="#">ADD Item</a>
@@ -143,21 +143,22 @@
                         <th>Cost</th>
                         <th>Price</th>
                         <th>Category</th>
-                        <th>Quatity</th>
+                        <th>Quantity</th>
                         <th>Date</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($item as $item): ?>
                     <tr>
-                        <td>1</td>
-                        <td>Milk</td>
-                        <td>Box</td>
-                        <td>10</td>
-                        <td>15</td>
-                        <td>Drink</td>
-                        <td>100</td>
-                        <td>1 Nov 2016</td>
+                        <td>{{ $item->ID }}</td>
+                        <td>{{ $item->Product }}</td>
+                        <td>{{ $item->Unit }}</td>
+                        <td>{{ $item->Cost }}</td>
+                        <td>{{ $item->Price }}</td>
+                        <td>{{ $item->Category }}</td>
+                        <td>{{ $item->Quantity}}</td>
+                        <td>{{ $item->created_at}}</td>  
                         <td>
                             <div class="dropdown">
                                 <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
@@ -171,6 +172,7 @@
                             </div>
                         </td>
                     </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>  
         </div>   
@@ -212,12 +214,12 @@
                             <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="price">
                         </div>
                          <div class="form-group">
-                            <label for="Quentity">Catagory:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="catagory">
+                            <label for="Quentity">Category:</label>
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="category">
                         </div>
                         <div class="form-group">
-                            <label for="Quentity">Quentity:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="quentity">
+                            <label for="Quentity">Quantity:</label>
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="quantity">
                         </div>
                         <div class="form-group">
                             <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON><input name="_token" type="hidden" value="{{ csrf_token() }}">

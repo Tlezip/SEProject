@@ -40,10 +40,11 @@ class itemController extends Controller
         $table->Unit = $request->input('unit');
         $table->Cost = $request->input('cost');
         $table->Price = $request->input('price');
-        $table->Catagory = $request->input('catagory');
-        $table->Quentity = $request->input('quentity');
+        $table->Category = $request->input('category');
+        $table->Quantity = $request->input('quantity');
+        $table->shopID = 0;
         $table->save();
-        return view('showItem');
+        return $this->show();
     }
 
     /**
@@ -52,9 +53,10 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+         $item = \DB::table('itemkeep')->where('shopID','=','0')->get();
+        return view('showItem', ['item' => $item]);
     }
 
     /**

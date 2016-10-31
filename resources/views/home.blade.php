@@ -97,7 +97,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i>  ITEM <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="showItem">ALL Item</a>
+                                <a href="{{ url('allItem') }}">ALL Item</a>
                             </li>
                             <li>
                                 <a href="#">ADD Item</a>

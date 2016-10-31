@@ -27,3 +27,5 @@ Route::get('/login', function(){
 });
 
 Route::post('/addItem','itemController@store');
+
+Route::get('/allItem','itemController@show');
