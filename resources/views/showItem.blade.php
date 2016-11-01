@@ -13,7 +13,9 @@
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
-    <link href="css/CSS_ADDITEM.css" rel="stylesheet">
+    <link href="css/component.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
@@ -116,433 +118,56 @@
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-    <nav class="navbar navbar-fixed-top headadditem">
-        <div class="col-md-12 search">
-            <div class="col-lg-1">
-                <button type="button" class="btn btn-link">
+        <div class="component">
+            <div class="row" style="margin-top:51px;">
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-link">
                     <span class="glyphicon glyphicon-search" aria-hidden="divue" ></span>
-                </button>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <input type="item" class="form-control" size="50" placeholder="Search for..." required>
+                </div>
             </div>
-            <div class="col-lg-11">
-                <input type="text" placeholder="Search for..." class="form-control" style="border:none;">
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Unit</th>
+                        <th>Cost</th>
+                        <th>Price</th>
+                        <th>Catagory</th>
+                        <th>Quantity</th>
+                        <th colspan="2">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td class="user-name">1</td>
+                        <td class="user-email">Coke</td>
+                        <td class="user-phone">can</td>
+                        <td class="user-mobile">$40</td>
+                        <td class="user-mobile">$50</td>
+                        <td class="user-mobile">Drink</td>
+                        <td class="user-mobile">500</td>
+                        <td class="user-mobile">1-sep-2016</td>
+                        <td class="user-mobile"> 
+                            <div class="dropdown">
+                                <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><button class="btn btn-link"><span class="glyphicon glyphicon-search" aria-hidden="true" >&nbsp;</span>Show Detail</button></li>
+                                    <li><button class="btn btn-link"><span class="glyphicon glyphicon-pencil" aria-hidden="true" >&nbsp;</span>Edit</button></li>
+                                    <li><button class="btn btn-link"><span class="glyphicon glyphicon-trash" aria-hidden="true" >&nbsp;</span>Remove</button></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="col-md-12">
-            <div class="col-md-1"><h6>ID</h6></div>
-            <div class="col-md-2"><h6>Product</h6></div>
-            <div class="col-md-1"><h6>Unit</h6></div>
-            <div class="col-md-1"><h6>Cost</h6></div>
-            <div class="col-md-1"><h6>Price</h6></div>
-            <div class="col-md-2"><h6>Category</h6></div>
-            <div class="col-md-1"><h6>Quantity</h6></div>
-            <div class="col-md-2"><h6>Date</h6></div>
-            <div class="col-md-1"></div>
-        </div>
-    </nav> 
-    <div class="headadditem2">
-            <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> <div class="col-md-12 list">
-                <div class="col-md-1">1</h6></div>
-                <div class="col-md-2">coke</h6></div>
-                <div class="col-md-1">can</h6></div>
-                <div class="col-md-1">40</h6></div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-2">Drink</div>
-                <div class="col-md-1">5</div>
-                <div class="col-md-2">1-sep-2016</div>
-                <div class="col-md-1"> 
-                    <div class="dropdown">
-                        <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                        </ul>
-                    </div>   
-                </div>
-            </div> 
-        </div>
-    </div>
-   
     <div>
         <footer style="position:absolute;position:fixed;top:86%;right:1%;">
             <button class="btn-link">
@@ -601,7 +226,9 @@
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="js/js/jquery.stickyheader.js"></script>
 </body>
 
 </html>
