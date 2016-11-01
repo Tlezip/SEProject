@@ -35,16 +35,37 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
-        $table = new \App\itemKeep;
-        $table->Product = $request->input('product');
-        $table->Unit = $request->input('unit');
-        $table->Cost = $request->input('cost');
-        $table->Price = $request->input('price');
-        $table->Category = $request->input('category');
-        $table->Quantity = $request->input('quantity');
-        $table->shopID = 0;
-        $table->save();
-        return $this->show();
+
+        $item = \DB::table('itemkeep')
+            ->where('Product','=',$request->input('product'))
+            ->where('Unit','=',$request->input('unit'))
+            ->where('Cost','=',$request->input('cost'))
+            ->where('Price','=',$request->input('price'))
+            ->where('Category','=',$request->input('category'))
+            ->where('shopID','=','0')
+            ->first();
+        if($item == NULL){
+            $table = new \App\itemKeep;
+            $table->Product = $request->input('product');
+            $table->Unit = $request->input('unit');
+            $table->Cost = $request->input('cost');
+            $table->Price = $request->input('price');
+            $table->Category = $request->input('category');
+            $table->Quantity = $request->input('quantity');
+            $table->shopID = 0;
+            $table->save();
+            return $this->show();
+        }   
+        else{
+           \DB::table('itemkeep')
+           ->where('Product','=',$request->input('product'))
+            ->where('Unit','=',$request->input('unit'))
+            ->where('Cost','=',$request->input('cost'))
+            ->where('Price','=',$request->input('price'))
+            ->where('Category','=',$request->input('category'))
+            ->increment('Quantity',$request->input('quantity'));
+           return $this->show();
+        }
     }
 
     /**
@@ -55,7 +76,9 @@ class itemController extends Controller
      */
     public function show()
     {
-         $item = \DB::table('itemkeep')->where('shopID','=','0')->get();
+         $item = \DB::table('itemkeep')
+            ->where('shopID','=','0')
+            ->get();
         return view('showItem', ['item' => $item]);
     }
 
@@ -88,8 +111,11 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $id)
     {
-        //
+        $temp = \DB::table('itemkeep')
+            ->where('ID','=',$id->input('ID'))
+            ->delete();
+        return $this->show();
     }
 }

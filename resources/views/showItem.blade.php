@@ -149,30 +149,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($item as $item): ?>
-                    <tr>
-                        <td>{{ $item->ID }}</td>
-                        <td>{{ $item->Product }}</td>
-                        <td>{{ $item->Unit }}</td>
-                        <td>{{ $item->Cost }}</td>
-                        <td>{{ $item->Price }}</td>
-                        <td>{{ $item->Category }}</td>
-                        <td>{{ $item->Quantity}}</td>
-                        <td>{{ $item->created_at}}</td>  
-                        <td>
-                            <div class="dropdown">
-                                <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php endforeach ?>
+                    <?php foreach ($item as $item): ?>
+                        <tr>
+                            <td>{{ $item->ID }}</td>
+                            <td>{{ $item->Product }}</td>
+                            <td>{{ $item->Unit }}</td>
+                            <td>{{ $item->Cost }}</td>
+                            <td>{{ $item->Price }}</td>
+                            <td>{{ $item->Category }}</td>
+                            <td>{{ $item->Quantity}}</td>
+                            <td>{{ $item->created_at}}</td>  
+                            <td>
+                                <div class="dropdown">
+                                    <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
+                                        <li>
+                                            <form method ="post" action="http://localhost/setest/public/delItem">
+                                                <BUTTON type="submit" class="btn btn-default">   remove  </BUTTON>
+                                                <span class="glyphicon glyphicon-trash" aria-hidden="true" > </span>
+                                                <input type="hidden" name="ID" value="{{ $item->ID }}">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">                                          
+                                            </form>
+                                        <li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    
                 </tbody>
             </table>  
         </div>   
@@ -207,22 +215,24 @@
                         </div>
                          <div class="form-group">
                             <label for="Quentity">Cost:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="cost">
+                            <input type="text" class="form-control" id="Cost" placeholder="Enter Product Quentity" name="cost">
                         </div>
                          <div class="form-group">
                             <label for="Quentity">Price:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="price">
+                            <input type="text" class="form-control" id="Price" placeholder="Enter Product Quentity" name="price">
                         </div>
                          <div class="form-group">
                             <label for="Quentity">Category:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="category">
+                            <input type="text" class="form-control" id="Category" placeholder="Enter Product Quentity" name="category">
                         </div>
                         <div class="form-group">
                             <label for="Quentity">Quantity:</label>
                             <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="quantity">
                         </div>
                         <div class="form-group">
-                            <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON><input name="_token" type="hidden" value="{{ csrf_token() }}">
+                            <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON>
+                            
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </div>
                     </form>
                 </div>
