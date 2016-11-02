@@ -59,7 +59,7 @@
                    <div class="row">
                        <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                               <input type="password" class="form-control" name="password" placeholder="password" id='password'required>
+                               <input type="password" class="form-control" name="password" placeholder="password" id="password" required>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
