@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/home', function(){
@@ -21,9 +21,18 @@ Route::get('/home', function(){
 
 Route::get('/showItem', function(){
 	return view('showItem');
-});
-Route::get('/login', function(){
-	return view('login');
-});
+})->middleware('auth');
 
-Route::post('/addItem','itemController@store');
+
+Route::get('/changepassword', 'ChangePasswordController@index')->middleware('auth');
+
+Route::post('/changepassworded', 'ChangePasswordController@store')->middleware('auth');
+
+Route::get('/profile', function(){
+	return view('profile');
+})->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
