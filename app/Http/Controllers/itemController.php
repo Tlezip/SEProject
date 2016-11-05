@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,15 +37,38 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
-        $table = new \App\itemKeep;
-        $table->Product = $request->input('product');
-        $table->Unit = $request->input('unit');
-        $table->Cost = $request->input('cost');
-        $table->Price = $request->input('price');
-        $table->Catagory = $request->input('catagory');
-        $table->Quentity = $request->input('quentity');
-        $table->save();
-        return view('showItem');
+        $request->session()->forget('Noitem');
+        $item = \DB::table('itemkeep')
+            ->where('Product','=',$request->input('product'))
+            ->where('Unit','=',$request->input('unit'))
+            ->where('Cost','=',$request->input('cost'))
+            ->where('Price','=',$request->input('price'))
+            ->where('Category','=',$request->input('category'))
+            ->where('shopID','=',Auth::user()->shopid)
+            ->first();
+        if($item == NULL){
+            $table = new \App\itemKeep;
+            $table->Product = $request->input('product');
+            $table->Unit = $request->input('unit');
+            $table->Cost = $request->input('cost');
+            $table->Price = $request->input('price');
+            $table->Category = $request->input('category');
+            $table->Quantity = $request->input('quantity');
+            $table->shopID = Auth::user()->shopid;
+            $table->save();
+            return $this->show();
+        }   
+        else{
+           \DB::table('itemkeep')
+           ->where('Product','=',$request->input('product'))
+            ->where('Unit','=',$request->input('unit'))
+            ->where('Cost','=',$request->input('cost'))
+            ->where('Price','=',$request->input('price'))
+            ->where('Category','=',$request->input('category'))
+            ->increment('Quantity',$request->input('quantity'));
+            
+           return $this->show();
+        }
     }
 
     /**
@@ -52,9 +77,20 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
+         $item = \DB::table('itemkeep')
+            ->where('shopID','=',Auth::user()->shopid)
+            ->get();
+            //Auth::user()->shopid
+       if($item == '[]'){
+            Session::flash('Noitem', 'No item in Stock');
+            return view('showItem', ['item' => $item]);
+        }
+        else{
+            return view('showItem', ['item' => $item]);
+        }
     }
 
     /**
@@ -86,8 +122,11 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $id)
     {
-        //
+        $temp = \DB::table('itemkeep')
+            ->where('ID','=',$id->input('ID'))
+            ->delete();
+        return $this->show();
     }
 }

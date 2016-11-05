@@ -69,7 +69,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Mildiemilk <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -82,8 +82,11 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                    </li>
+                            <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-power-off"></i> Logout</a>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                 </ul>
             </li>
         </ul>
@@ -99,7 +102,7 @@
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i>  ITEM <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">
                         <li>
-                            <a href="#">ALL Item</a>
+                            <a href="http://localhost/setest/public/allItem">ALL Item</a>
                         </li>
                         <li>
                             <a href="#">ADD Item</a>
@@ -143,36 +146,51 @@
                         <th>Cost</th>
                         <th>Price</th>
                         <th>Category</th>
-                        <th>Quatity</th>
+                        <th>Quantity</th>
                         <th>Date</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Milk</td>
-                        <td>Box</td>
-                        <td>10</td>
-                        <td>15</td>
-                        <td>Drink</td>
-                        <td>100</td>
-                        <td>1 Nov 2016</td>
-                        <td>
-                            <div class="dropdown">
-                                <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php foreach ($item as $item): ?>
+                        <tr>
+                            <td>{{ $item->ID }}</td>
+                            <td>{{ $item->Product }}</td>
+                            <td>{{ $item->Unit }}</td>
+                            <td>{{ $item->Cost }}</td>
+                            <td>{{ $item->Price }}</td>
+                            <td>{{ $item->Category }}</td>
+                            <td>{{ $item->Quantity}}</td>
+                            <td>{{ $item->created_at}}</td>  
+                            <td>
+                                <div class="dropdown">
+                                    <button style="padding-top:0%;" type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
+                                        <li>
+                                            <form method ="post" action="{{ url('/delItem') }}">
+                                                <BUTTON type="submit" class="btn btn-default">   remove  </BUTTON>
+                                                <span class="glyphicon glyphicon-trash" aria-hidden="true" > </span>
+                                                <input type="hidden" name="ID" value="{{ $item->ID }}">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">                                          
+                                            </form>
+                                        <li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    
                 </tbody>
-            </table>  
+            </table>
+            @if (Session::get('Noitem'))
+                          <div class="alert alert-danger" role="alert">
+                            {{ Session::get('Noitem') }}
+                          </div>
+                        @endif  
         </div>   
     </div>
 	<div>
@@ -194,7 +212,7 @@
                     <h4 class="modal-title">Add Stock</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action ="http://localhost/setest/public/addItem">
+                    <form method="post" action ="{{ url('/addItem') }}">
                         <div class="form-group">
                             <label for="Product">Product:</label>
                             <input type="text" class="form-control" id="Product" placeholder="Enter Product name" name = "product">
@@ -205,22 +223,24 @@
                         </div>
                          <div class="form-group">
                             <label for="Quentity">Cost:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="cost">
+                            <input type="text" class="form-control" id="Cost" placeholder="Enter Product Quentity" name="cost">
                         </div>
                          <div class="form-group">
                             <label for="Quentity">Price:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="price">
+                            <input type="text" class="form-control" id="Price" placeholder="Enter Product Quentity" name="price">
                         </div>
                          <div class="form-group">
-                            <label for="Quentity">Catagory:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="catagory">
+                            <label for="Quentity">Category:</label>
+                            <input type="text" class="form-control" id="Category" placeholder="Enter Product Quentity" name="category">
                         </div>
                         <div class="form-group">
-                            <label for="Quentity">Quentity:</label>
-                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="quentity">
+                            <label for="Quentity">Quantity:</label>
+                            <input type="text" class="form-control" id="Quentity" placeholder="Enter Product Quentity" name="quantity">
                         </div>
                         <div class="form-group">
-                            <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON><input name="_token" type="hidden" value="{{ csrf_token() }}">
+                            <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON>
+                            
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </div>
                     </form>
                 </div>
