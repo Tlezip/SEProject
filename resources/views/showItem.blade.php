@@ -104,9 +104,7 @@
                         <li>
                             <a href="http://localhost/setest/public/allItem">ALL Item</a>
                         </li>
-                        <li>
-                            <a href="#">ADD Item</a>
-                        </li>
+
                     </ul>
                 </li>
                 <li>
@@ -169,7 +167,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span>Show Detail</a></li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
+                                        <li><a data-toggle="modal" data-target="#editstock"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</a></li>
                                         <li>
                                             <form method ="post" action="{{ url('/delItem') }}">
                                                 <BUTTON type="submit" class="btn btn-default">   remove  </BUTTON>
@@ -201,7 +199,48 @@
         </footer>
     </div>
 
-    <!-- Modal add stock -->
+    <!-- Modal edit item -->
+    <div id="editstock" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">edit item</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Product">Product:</label>
+                            <input type="text" class="form-control" id="editProduct" placeholder="Enter Product name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Type">Type:</label>
+                            <input type="text" class="form-control" id="editType" placeholder="Enter Product Type">
+                        </div>
+                        <div class="form-group">
+                            <label for="Price">Price:</label>
+                            <input type="text" class="form-control" id="editPrice" placeholder="Enter Product Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="Principle">Principle:</label>
+                            <input type="text" class="form-control" id="editPrinciple" placeholder="Enter Product Principle">
+                        </div>
+                        <div class="form-group">
+                            <label for="Quentity">Quentity:</label>
+                            <input type="text" class="form-control" id="editQuentity" placeholder="Enter Product Quentity">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal add stock -->
     <div id="addstock" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -209,7 +248,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add Stock</h4>
+                    <h4 class="modal-title">Add item</h4>
                 </div>
                 <div class="modal-body">
                     <form method="post" action ="{{ url('/addItem') }}">
