@@ -30,4 +30,8 @@ Route::post('/addItem','itemController@store');
 
 Route::get('/allItem','itemController@show');
 
-Route::post('/delItem/','itemController@destroy');
+Route::post('/delItem','itemController@destroy');
+
+Route::get('/search','itemController@search');
+
+Route::get('/cal','itemController@calcat');

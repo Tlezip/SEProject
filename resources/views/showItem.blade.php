@@ -121,16 +121,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 form-control fill" style="margin-top: 5%;">
-                <div class="col-lg-1" style="padding:8px;">
-                    <button type="button" class="btn dropdown-toggle btn btn-link" data-toggle="dropdown" style="position: fixed;">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
-                    </button>
-                </div>
-                <div class="col-lg-11"  style="padding:5px;">
-                    <div class="form-group" style="position: fixed;">
-                        <input type="text" placeholder="  Search for..."  style="width: 1000px; height:40px; border:none;">
-                    </div>      
-                </div>
+                <form method = "get" action="http://localhost/setest/public/search"> 
+                    <div class="col-lg-1" style="padding:8px;">
+                        <button type="submit" class="btn dropdown-toggle btn btn-link" style="position: fixed;">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
+                        </button>
+                    </div>
+                    <div class="col-lg-11"  style="padding:5px;">
+                        <div class="form-group" style="position: fixed;">
+                            <input type="text" placeholder="  Search for..." name="search" style="width: 1000px; height:40px; border:none;">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </div>      
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row" >
@@ -138,13 +141,13 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Product</th>
+                        <th>Product</th> 
                         <th>Unit</th>
                         <th>Cost</th>
                         <th>Price</th>
                         <th>Category</th>
                         <th>Quantity</th>
-                        <th>Date</th>
+                        <th>{{$n['Book']}}</th>
                         <th></th>
                     </tr>
                 </thead>
