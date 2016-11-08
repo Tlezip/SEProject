@@ -36,7 +36,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{ $category }}</div>
+                                    <div class="huge">{{ $allcat }}</div>
                                     <div>Categories</div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
 
                         <div class="col-md-6">
                             <ul style="list-style-type: none">
-                                <li><i class="fa fa-circle-o " style="color: #FCE4C1" id="cat1" value="<?php echo $category['Book'] ?>"></i> Assessories</li>
+                                <li><i class="fa fa-circle-o " style="color: #FCE4C1"></i> Assessories</li>
                                 <li><i class="fa fa-circle-o " style="color: #F1C3B7"></i> ฺBeverages</li>
                                 <li><i class="fa fa-circle-o " style="color: #AFA2B1"></i> Book</li>
                                 <li><i class="fa fa-circle-o " style="color: #577E8B"></i> Cosmetic</li>
@@ -140,39 +140,38 @@
     jQuery(document).ready(function() {});
 
     jQuery.getScript('http://www.chartjs.org/assets/Chart.js',function(){
-        console.log($('#cat1').val());
         var data = [{
-            value: 88,
+            value: "<?php echo $cat['Assessories'] ?>",
             color: "#FCE4C1"
         }, {
-            value: 50,
+            value: "<?php echo $cat['Beverages'] ?>",
             color: "#F1C3B7"
         }, {
-            value: 120,
+            value: "<?php echo $cat['Book'] ?>",
             color: "#AFA2B1"
         }, {
-            value: 120,
+            value: "<?php echo $cat['Cosmetic'] ?>",
             color: "#577E8B"
         }, {
-            value: 120,
+            value: "<?php echo $cat['DairyProduct'] ?>",
             color: "#95B7E1"
         }, {
-            value: 120,
+            value: "<?php echo $cat['Electronic'] ?>",
             color: "#D2E8FD"
         }, {
-            value: 120,
+            value: "<?php echo $cat['Groceries'] ?>",
             color: "#FBDBD8"
         }, {
-            value: 49,
+            value: "<?php echo $cat['Phamaceuticals'] ?>",
             color: "#C8BAD2"
         }, {
-            value: 120,
+            value: "<?php echo $cat['Snack'] ?>",
             color: "#7479A0"
         }, {
-            value: 120,
+            value: "<?php echo $cat['Tobacco'] ?>",
             color: "#333853"
         }, {
-            value: 120,
+            value: "<?php echo $cat['ToyGames'] ?>",
             color: "#4D464B"
         }
 
