@@ -147,7 +147,7 @@
                         <th>Price</th>
                         <th>Category</th>
                         <th>Quantity</th>
-                        <th>{{$n['Book']}}</th>
+                        <th>Date</th>
                         <th></th>
                     </tr>
                 </thead>

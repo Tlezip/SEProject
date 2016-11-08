@@ -33,7 +33,7 @@ class itemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $re)
+    public function store(Request $request)
     {
 
         $item = \DB::table('itemkeep')
@@ -88,9 +88,27 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        \DB::table('itemkeep')
+            ->where('ID','=','5')
+            ->update(['Product' => $request->input('product')]);
+        \DB::table('itemkeep')
+            ->where('ID','=','5')
+            ->update(['Unit' => $request->input('unit')]);
+        \DB::table('itemkeep')
+            ->where('ID','=','5')
+            ->update(['Cost' => $request->input('uost')]);
+        \DB::table('itemkeep')
+            ->where('ID','=','5')
+            ->update(['Price' => $request->input('urice')]);
+        \DB::table('itemkeep')
+            ->where('ID','=','5')
+            ->update(['Category' => $request->input('category')]);
+        \DB::table('itemkeep')
+            ->where('ID','=','5')
+            ->update(['Quantity' => $request->input('quantity')]);
+        return $this->show();
     }
 
     /**
