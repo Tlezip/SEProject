@@ -35,7 +35,7 @@ Route::get('/profile', function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@dashStatus');
 
 Route::post('/addItem','itemController@store')->middleware('auth');
 

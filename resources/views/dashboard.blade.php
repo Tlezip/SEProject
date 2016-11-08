@@ -21,7 +21,7 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">107</div>
+                                    <div class="huge">{{ $count }}</div>
                                     <div>Product</div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">5</div>
+                                    <div class="huge">{{ $category }}</div>
                                     <div>Categories</div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                     <i class="fa fa-money fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">1000$</div>
+                                    <div class="huge">{{ $profit }}</div>
                                     <div>Future Profits</div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                     <i class="fa fa-briefcase fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">2000$</div>
+                                    <div class="huge">{{ $cost }}</div>
                                     <div>Costs</div>
                                 </div>
                             </div>
@@ -84,44 +84,19 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Product</th>
                             <th>Category</th>
                             <th>Quantity</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Milk</td>
-                            <td>Drink</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Donut</td>
-                            <td>Food</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Water</td>
-                            <td>Drink</td>
-                            <td>200</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Beer</td>
-                            <td>Drink</td>
-                            <td>50</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Computer</td>
-                            <td>Eletronic</td>
-                            <td>10</td>
-                        </tr>
-                        </tbody>
+                        @foreach ($item as $item)
+                            <tr>
+                                <td>{{ $item->Product }}</td>
+                                <td>{{ $item->Category }}</td>
+                                <td>{{ $item->Quantity }}</td>
+                            </tr>
+                        @endforeach
                     </table>
                 </div>
             </div>
@@ -139,11 +114,17 @@
 
                         <div class="col-md-6">
                             <ul style="list-style-type: none">
-                                <li><i class="fa fa-circle-o " style="color: red"></i> Toy</li>
-                                <li><i class="fa fa-circle-o " style="color: #e2eae9"></i> Food</li>
-                                <li><i class="fa fa-circle-o " style="color: #d4ccc5"></i> Drink</li>
-                                <li><i class="fa fa-circle-o " style="color: #949fb1"></i> Electronic</li>
-                                <li><i class="fa fa-circle-o " style="color: #4d5360"></i> Clothes</li>
+                                <li><i class="fa fa-circle-o " style="color: #FCE4C1" id="cat1" value="<?php echo $category['Book'] ?>"></i> Assessories</li>
+                                <li><i class="fa fa-circle-o " style="color: #F1C3B7"></i> ฺBeverages</li>
+                                <li><i class="fa fa-circle-o " style="color: #AFA2B1"></i> Book</li>
+                                <li><i class="fa fa-circle-o " style="color: #577E8B"></i> Cosmetic</li>
+                                <li><i class="fa fa-circle-o " style="color: #95B7E1"></i> Dairy Product</li>
+                                <li><i class="fa fa-circle-o " style="color: #D2E8FD"></i> Electronic</li>
+                                <li><i class="fa fa-circle-o " style="color: #FBDBD8"></i> Groceries</li>
+                                <li><i class="fa fa-circle-o " style="color: #C8BAD2"></i> Phamaceuticals</li>
+                                <li><i class="fa fa-circle-o " style="color: #7479A0"></i> Snack</li>
+                                <li><i class="fa fa-circle-o " style="color: #333853"></i> Tobacco</li>
+                                <li><i class="fa fa-circle-o " style="color: #4D464B"></i> Toy&games</li>
                             </ul>
                         </div>
                     </div>
@@ -159,22 +140,40 @@
     jQuery(document).ready(function() {});
 
     jQuery.getScript('http://www.chartjs.org/assets/Chart.js',function(){
-
+        console.log($('#cat1').val());
         var data = [{
-            value: 30,
-            color: "#F7464A"
+            value: 88,
+            color: "#FCE4C1"
         }, {
             value: 50,
-            color: "#E2EAE9"
-        }, {
-            value: 100,
-            color: "#D4CCC5"
-        }, {
-            value: 40,
-            color: "#949FB1"
+            color: "#F1C3B7"
         }, {
             value: 120,
-            color: "#4D5360"
+            color: "#AFA2B1"
+        }, {
+            value: 120,
+            color: "#577E8B"
+        }, {
+            value: 120,
+            color: "#95B7E1"
+        }, {
+            value: 120,
+            color: "#D2E8FD"
+        }, {
+            value: 120,
+            color: "#FBDBD8"
+        }, {
+            value: 49,
+            color: "#C8BAD2"
+        }, {
+            value: 120,
+            color: "#7479A0"
+        }, {
+            value: 120,
+            color: "#333853"
+        }, {
+            value: 120,
+            color: "#4D464B"
         }
 
         ]
