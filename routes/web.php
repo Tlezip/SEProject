@@ -37,6 +37,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@dashStatus');
 
+Route::post('/editItem','itemController@edit');
+
+Route::get('/search','itemController@search');
+
 Route::post('/addItem','itemController@store')->middleware('auth');
 
 Route::get('/allItem','itemController@show')->middleware('auth');

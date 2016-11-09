@@ -36,14 +36,16 @@ class HomeController extends Controller
             ->get();
 
         $item = \DB::table('itemkeep')
+            ->where('shopID','=',Auth::user()->shopid)
             ->orderBy('created_at','desc')->take(5)->get();
 
         $sum1 = 0;
         $sum2 = 0;
-
+        $count = 0;
         foreach ($id as $id) {
             $sum1 += ($id->Price) * ($id->Quantity);
             $sum2 += ($id->Cost) * ($id->Quantity);
+            $count += 1;
         }
 
         $Assessories  = \DB::table('itemkeep')
@@ -157,7 +159,6 @@ class HomeController extends Controller
                 $allcat += 1;
         }
 
-        $count = COUNT($id);
         $profit =  $sum1 - $sum2;
         $cost = $sum2;
         return view('dashboard', ['count' => $count,'allcat' => $allcat,'cat' => $cat,'profit' => $profit,'cost' => $cost,'item' => $item]);

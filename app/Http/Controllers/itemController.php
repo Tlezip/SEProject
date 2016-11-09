@@ -71,6 +71,36 @@ class itemController extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Product' => $request->input('product')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Unit' => $request->input('unit')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Cost' => $request->input('cost')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Price' => $request->input('price')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Category' => $request->input('category')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Quantity' => $request->input('quantity')]);
+        return $this->show();
+    }
+
+    public function search(Request $search){
+        $temp = \DB::table('itemkeep')
+            ->where('Product','REGEXP','.*'.$search->input('search').'.*')
+            ->get();
+        return view('showItem', ['item' => $temp]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -99,10 +129,6 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

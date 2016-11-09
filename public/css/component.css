@@ -59,7 +59,7 @@ tbody tr:hover {
 	overflow-x:visible;
 	overflow-y:visible;
 	position: relative;
-	margin: 3em 0;
+	margin-top: 3em;
 	width: 100%;
 }
 .sticky-wrap .sticky-thead,

@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">{{ $count }}</div>
-                                    <div>Product</div>
+                                    <div>Products</div>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
 
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Graph item in stock</div>
+                <div class="panel-heading">Item in stock</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6">
