@@ -256,16 +256,9 @@ class itemController extends Controller
         foreach ($ToyGames as $ToyGames){
             $n['ToyGames'] += $ToyGames->Quantity;
         }
-
-        //echo "$n['Assessories']$n['Beverages']$n['Book']$n['Cosmetic']$n['DairyProduct']$n['Electronic']$n['Groceries']['Phamaceuticals']$n['Snack']$n['Tobacco']$n['ToyGames']";   
-        //echo $n['Assessories']."\n".$n['Beverages'];
         $item = \DB::table('itemkeep')
             ->where('shopID','=','0')
             ->get();
         return view('showItem', ['n' => $n,'item' => $item]);
     }
-   // public function test(){
-    //    $t = $this->calcat();
-    //    echo $t['Book'];
-   // }
 }
