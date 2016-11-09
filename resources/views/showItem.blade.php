@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body onload="errorfunc()">
 
 <div id="wrapper">
 
@@ -136,7 +136,7 @@
                 </form>
             </div>
         </div>
-        <div class="row" >
+        <div class="row">
             <table id="example" class="mdl-data-table" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -183,7 +183,7 @@
                             </td>
                         </tr>
                         <?php endforeach ?>
-                    
+                        
                 </tbody>
             </table>  
         </div>   
@@ -248,7 +248,17 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script>
+        function errorfunc() {
+            var allerror = " ";
+            @if (count($errors) > 0)
+                @foreach ($errors->all() as $error)
+                    allerror = allerror.concat("\n","{{$error}}");
+                @endforeach
+                alert(allerror);
+            @endif
+        }
+    </script>
     <!-- Morris Charts JavaScript -->
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>

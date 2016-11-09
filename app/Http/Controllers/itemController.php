@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,7 +37,12 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
-
+        $this->validate($request,[
+            'product' => 'required|string',
+            'unit' => 'required|string',
+            'cost' => 'required|integer',
+            'price' => 'required|integer',
+        ]);
         $item = \DB::table('itemkeep')
             ->where('Product','=',$request->input('product'))
             ->where('Unit','=',$request->input('unit'))
