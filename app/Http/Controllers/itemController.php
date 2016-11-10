@@ -42,6 +42,7 @@ class itemController extends Controller
             'unit' => 'required|string',
             'cost' => 'required|integer',
             'price' => 'required|integer',
+            'quantity' => 'required|integer',
         ]);
         $item = \DB::table('itemkeep')
             ->where('Product','=',$request->input('product'))
