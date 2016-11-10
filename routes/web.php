@@ -46,3 +46,5 @@ Route::post('/addItem','itemController@store')->middleware('auth');
 Route::get('/allItem','itemController@show')->middleware('auth');
 
 Route::post('/delItem/','itemController@destroy')->middleware('auth');
+
+Route::get('/check','itemController@check')->middleware('auth');

@@ -46,7 +46,7 @@
                                     <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><button class="btn btn-link" data-toggle="modal" data-target="#editstock"><span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>Edit</button></li>
+                                    <li><button class="btn btn-link" data-toggle="modal" data-target="#editstock"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button></li>
                                     <li>
                                         <form method ="post" action="{{ url('/delItem') }}">
                                             <button class="btn btn-link"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</button>
@@ -65,6 +65,15 @@
             <div class="alert alert-danger" role="alert">
                 {{ Session::get('Noitem') }}
             </div>
+            @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
     </div>
     <div>
@@ -89,8 +98,10 @@
             </div>
             <div class="modal-body">
                 <form method="post" action ="{{ url('/editItem') }}">
+                <input type="hidden" name="ID" value="{{ $item->ID }}">
                     <div class="form-group">
                         <label for="Product">Product:</label>
+                        <input type="text" class="form-control" id="Type" value="{{ $item->Product }}" name = "product">
                     </div>
                     <div class="form-group">
                         <label for="Type">Unit:</label>
@@ -179,7 +190,7 @@
                                  <option value="Phamaceuticals">Phamaceuticals</option>
                                  <option value="Snack">Snack</option>
                                  <option value="Tobacco">Tobacco</option>
-                                 <option value="Toy&games">Toy&games</option>
+                                 <option value="ToyGames">Toy&games</option>
                              </select>
                         </div>
                         <div class="form-group">

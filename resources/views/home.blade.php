@@ -106,10 +106,10 @@
                     </li>
 
                     <li>
-                        <a href="{{ url('allItem') }}" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i> ALL ITEM</i></a>
+                        <a href="{{ url('allItem') }}" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i> All Item</i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Promotion</a>
+                        <a href="{{ url('check') }}"><i class="fa fa-fw fa-edit"></i> Check strock</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-file"></i> Summary</a>
