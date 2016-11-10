@@ -108,7 +108,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Check</a>
+                        <a href="http://localhost/setest/public/check"><i class="fa fa-fw fa-edit"></i> Check</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-file"></i> Summary</a>
@@ -150,7 +150,7 @@
                 <tbody>
                     <?php foreach ($item as $item): ?>
                          <tr>
-                            <td>{{ $item->ID }}</td>
+                            <td>{{ $item->itemID }}</td>
                             <td>{{ $item->Product }}</td>
                             <td>{{ $item->Unit }}</td>
                             <td>{{ $item->Cost }}</td>
@@ -170,7 +170,7 @@
                                                 <form method ="post" action="http://localhost/setest/public/delItem">
                                                     <span class="glyphicon glyphicon-trash" aria-hidden="true" > </span>
                                                     <BUTTON type="submit" class="btn btn-default">   remove  </BUTTON>
-                                                    <input type="hidden" name="ID" value="{{ $item->ID }}">
+                                                    <input type="hidden" name="ID" value="{{ $item->itemID }}">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">                                          
                                                 </form>
                                             <li>
