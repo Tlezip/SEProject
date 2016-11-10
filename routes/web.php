@@ -37,3 +37,5 @@ Route::get('/search','itemController@search');
 Route::get('/cal','itemController@calcat');
 
 Route::get('/edit','itemController@edit');
+
+Route::get('/check','itemController@check');

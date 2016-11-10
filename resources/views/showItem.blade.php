@@ -108,7 +108,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Promotion</a>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Check</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-file"></i> Summary</a>

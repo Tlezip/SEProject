@@ -262,4 +262,8 @@ class itemController extends Controller
             ->get();
         return view('showItem', ['n' => $n,'item' => $item]);
     }
+    public function check(Request $request)
+    {
+        $item = \DB::table('itemkeep')
+    }
 }
