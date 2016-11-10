@@ -105,7 +105,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Promotion</a>
+                        <a href="http://localhost/setest/public/check"><i class="fa fa-fw fa-edit"></i> chack</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-file"></i> Summary</a>
