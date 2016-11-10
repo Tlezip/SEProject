@@ -173,7 +173,7 @@
                                  <option value="Beverages">Beverages</option>
                                  <option value="Book">Book</option>
                                  <option value="Cosmetic">Cosmetic</option>
-                                 <option value="Dairy Product">Dairy Product</option>
+                                 <option value="DairyProduct">Dairy Product</option>
                                  <option value="Electronic">Electronic</option>
                                  <option value="Groceries">Groceries</option>
                                  <option value="Phamaceuticals">Phamaceuticals</option>
