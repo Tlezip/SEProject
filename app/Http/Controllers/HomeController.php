@@ -52,6 +52,7 @@ class HomeController extends Controller
 
     public function imageDelete()
     {
+        \File::delete('images/' . Auth::user()->photoname);
         \App\User::where('email',Auth::user()->email)
             ->update (['photoname' => 'avatar']);
         return back();
