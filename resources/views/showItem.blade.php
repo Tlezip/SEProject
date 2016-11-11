@@ -168,6 +168,7 @@
                 </tbody>
             </table>
         </div>
+    </div>
     <div>
         <footer style="position:absolute;position:fixed;top:86%;right:1%;">
             <button class="btn-link">
@@ -175,7 +176,6 @@
             </button>
         </footer>
     </div>
-</div>
     <!-- Modal add stock -->
     <div id="addstock" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -229,6 +229,18 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="js/js/jquery.stickyheader.js"></script>
+    <script>
+        function errorfunc() {
+            var allerror;
+            @if (count($errors) > 0)
+                @foreach ($errors->all() as $error)
+                    allerror = allerror.concat("\n","{{ $error }}");
+                @endforeach
+                alert(allerror);
+            @endif
+        }
+    </script>
+}
 </body>
 
 </html>
