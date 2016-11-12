@@ -37,6 +37,13 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'product' => 'required|string',
+            'unit' => 'required|string',
+            'cost' => 'required|integer',
+            'price' => 'required|integer',
+        ]);
+
         $request->session()->forget('Noitem');
         $item = \DB::table('itemkeep')
             ->where('Product','=',$request->input('product'))
@@ -56,7 +63,7 @@ class itemController extends Controller
             $table->Quantity = $request->input('quantity');
             $table->shopID = Auth::user()->shopid;
             $table->save();
-            return $this->show();
+            return redirect('/allItem');
         }   
         else{
            \DB::table('itemkeep')
@@ -67,8 +74,38 @@ class itemController extends Controller
             ->where('Category','=',$request->input('category'))
             ->increment('Quantity',$request->input('quantity'));
             
-           return $this->show();
+           return redirect('/allItem');
         }
+    }
+
+    public function edit(Request $request)
+    {
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Product' => $request->input('product')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Unit' => $request->input('unit')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Cost' => $request->input('cost')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Price' => $request->input('price')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Category' => $request->input('category')]);
+        \DB::table('itemkeep')
+            ->where('ID','=',$request->input('ID'))
+            ->update(['Quantity' => $request->input('quantity')]);
+        return redirect('/allItem');
+    }
+
+    public function search(Request $search){
+        $temp = \DB::table('itemkeep')
+            ->where('Product','REGEXP','.*'.$search->input('search').'.*')
+            ->get();
+        return redirect('/allItem', ['item' => $temp]);
     }
 
     /**
@@ -99,10 +136,6 @@ class itemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -127,6 +160,19 @@ class itemController extends Controller
         $temp = \DB::table('itemkeep')
             ->where('ID','=',$id->input('ID'))
             ->delete();
-        return $this->show();
+        return redirect('/allItem');
+    }
+    public function check(Request $request)
+    {
+         $item = \DB::table('itemkeep')
+            ->where('shopID','=',Auth::user()->shopid)
+            ->get();
+        return view('checkstock',['item' => $item]);
+        
+    }
+    public function profit(Request $request)
+    {
+         
+        
     }
 }
