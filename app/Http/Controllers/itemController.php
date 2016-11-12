@@ -177,15 +177,15 @@ class itemController extends Controller
             ->get();
         foreach ($items as $item) {
             $table = new \App\profit;
-            $table->itemID = $request->input('ID'.$item->ID);
+            $table->itemID = $request->input($item->ID);
             $table->shopID = Auth::user()->shopid;
             $table->profit = $request->input('sold'.$item->ID)*$item->Price;
             $table->sold = $request->input('sold'.$item->ID);
             $table->save();
             \DB::table('itemkeep')
-                ->where('ID','=',$request->input('ID'.$item->ID))
+                ->where('ID','=',$request->input($item->ID))
                 ->update(['Quantity' => $item->Quantity - $request->input('sold'.$item->ID)]);
         } 
-            return redirect('/allItem');
+        return redirect('/allItem');
     }
 }
