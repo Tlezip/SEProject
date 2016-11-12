@@ -105,7 +105,7 @@ class itemController extends Controller
         $temp = \DB::table('itemkeep')
             ->where('Product','REGEXP','.*'.$search->input('search').'.*')
             ->get();
-        return redirect('/allItem', ['item' => $temp]);
+        return redirect('/allItem', ['items' => $temp]);
     }
 
     /**
@@ -123,10 +123,10 @@ class itemController extends Controller
             //Auth::user()->shopid
        if($item == '[]'){
             Session::flash('Noitem', 'No item in Stock');
-            return view('showItem', ['item' => $item]);
+            return view('showItem', ['items' => $item]);
         }
         else{
-            return view('showItem', ['item' => $item]);
+            return view('showItem', ['items' => $item]);
         }
     }
 

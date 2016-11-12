@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($item as $item):
+                    @foreach ($items as $item)
                      <tr>
                         <td class="user-name">{{ $item->ID }}</td>
                         <td class="user-email">{{ $item->Product }}</td>
@@ -46,7 +46,7 @@
                                     <span class="glyphicon glyphicon-option-vertical" aria-hidden="true" ></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><button class="btn btn-link" data-toggle="modal" data-target="#editstock"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button></li>
+                                    <li><button class="btn btn-link" data-toggle="modal" data-target="#editstock{{ $item->ID }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button></li>
                                     <li>
                                         <form method ="post" action="{{ url('/delItem') }}">
                                             <button class="btn btn-link"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>Remove</button>
@@ -85,8 +85,10 @@
         </footer>
     </div>
 </div>
+
+@foreach ($items as $item)
 <!-- Modal edit stock-->
-<div id="editstock" class="modal fade" role="dialog">
+<div id="editstock{{ $item->ID }}" class="modal fade" role="dialog">
     <div class="modal-dialog">
         @if (Session::get('Noitem'))
         @else
@@ -145,7 +147,7 @@
         @endif
     </div>
 </div>
-
+@endforeach
 
     <!-- Modal add stock -->
     <div id="addstock" class="modal fade" role="dialog">
