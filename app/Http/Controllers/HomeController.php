@@ -39,9 +39,8 @@ class HomeController extends Controller
 
         $path = public_path('images/' . $imageName);
  
-        
-        Image::make($request->image->getRealPath())->resize(150, 150)->save($path);
-
+        Image::make($request->image->move(public_path('images'), $imageName)->getRealPath())->resize(150, 150)->save($path);
+        /*Image::make($request->image->getRealPath())->resize(150, 150)->save($path);*/
         /*$request->image->move(public_path('images'), $imageName);*/
         \App\User::where('email',Auth::user()->email)
             ->update (['photoname' => $imageName]);
