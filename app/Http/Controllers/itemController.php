@@ -67,12 +67,12 @@ class itemController extends Controller
         }   
         else{
            \DB::table('itemkeep')
-           ->where('Product','=',$request->input('product'))
-            ->where('Unit','=',$request->input('unit'))
-            ->where('Cost','=',$request->input('cost'))
-            ->where('Price','=',$request->input('price'))
-            ->where('Category','=',$request->input('category'))
-            ->increment('Quantity',$request->input('quantity'));
+                ->where('Product','=',$request->input('product'))
+                ->where('Unit','=',$request->input('unit'))
+                ->where('Cost','=',$request->input('cost'))
+                ->where('Price','=',$request->input('price'))
+                ->where('Category','=',$request->input('category'))
+                ->increment('Quantity',$request->input('quantity'));
             
            return redirect('/allItem');
         }
@@ -172,7 +172,20 @@ class itemController extends Controller
     }
     public function profit(Request $request)
     {
-         
-        
+        $items = \DB::table('itemkeep')
+            ->where('shopID','=',Auth::user()->shopid)
+            ->get();
+        foreach ($items as $item) {
+            $table = new \App\profit;
+            $table->itemID = $request->input('ID'.$item->ID);
+            $table->shopID = Auth::user()->shopid;
+            $table->profit = $request->input('sold'.$item->ID)*$item->Price;
+            $table->sold = $request->input('sold'.$item->ID);
+            $table->save();
+            \DB::table('itemkeep')
+                ->where('ID','=',$request->input('ID'.$item->ID))
+                ->update(['Quantity' => $item->Quantity - $request->input('sold'.$item->ID)]);
+        } 
+            return redirect('/allItem');
     }
 }
