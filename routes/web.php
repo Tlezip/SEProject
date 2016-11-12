@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/index', function () {
+    return redirect()->route('login');
+});
+
 /*Route::get('/home', function(){
 	return view('home');
 });
@@ -52,3 +56,5 @@ Route::get('/allItem','itemController@show')->middleware('auth');
 Route::post('/delItem/','itemController@destroy')->middleware('auth');
 
 Route::get('/check','itemController@check')->middleware('auth');
+
+Route::post('/profit','itemController@profit')->middleware('auth');

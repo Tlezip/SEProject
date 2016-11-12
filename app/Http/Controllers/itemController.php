@@ -105,7 +105,7 @@ class itemController extends Controller
         $temp = \DB::table('itemkeep')
             ->where('Product','REGEXP','.*'.$search->input('search').'.*')
             ->get();
-        return view('showItem', ['item' => $temp]);
+        return redirect('/allItem', ['item' => $temp]);
     }
 
     /**
@@ -167,6 +167,12 @@ class itemController extends Controller
          $item = \DB::table('itemkeep')
             ->where('shopID','=',Auth::user()->shopid)
             ->get();
-        echo $item;
+        return view('checkstock',['item' => $item]);
+        
+    }
+    public function profit(Request $request)
+    {
+         
+        
     }
 }

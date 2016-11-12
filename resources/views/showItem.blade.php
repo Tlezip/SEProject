@@ -75,7 +75,7 @@
                     </ul>
                 </div>
             @endif
-    </div>
+        </div>
     <div>
 
         <footer style="position:absolute;position:fixed;top:86%;right:1%;">
