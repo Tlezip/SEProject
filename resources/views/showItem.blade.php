@@ -75,7 +75,7 @@
                     </ul>
                 </div>
             @endif
-    </div>
+        </div>
     <div>
 
         <footer style="position:absolute;position:fixed;top:86%;right:1%;">
@@ -98,7 +98,6 @@
             </div>
             <div class="modal-body">
                 <form method="post" action ="{{ url('/editItem') }}">
-                <input type="hidden" name="ID" value="{{ $item->ID }}">
                     <div class="form-group">
                         <label for="Product">Product:</label>
                         <input type="text" class="form-control" id="Type" value="{{ $item->Product }}" name = "product">
