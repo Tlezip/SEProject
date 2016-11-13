@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Session;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -47,6 +47,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $adminkey = '12345';
+        if($data['key'] != '12345'){
+            Session::flash('checkkey', 'Admin Key doesn\'t match.');
+        }
         return Validator::make($data, [
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
@@ -54,7 +58,9 @@ class RegisterController extends Controller
             'shopname',
             'name',
             'photoname',
+            'key' => 'admin',
         ]);
+
     }
 
     /**

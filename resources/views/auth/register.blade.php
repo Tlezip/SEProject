@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}"><input type="hidden" name="_token" value="{{ csrf_token() }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('shopid') ? ' has-error' : '' }}">
@@ -90,7 +90,19 @@
                             </div>
                         </div>
 
-                        
+                        <div class="form-group{{ $errors->has('Key') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Admin Key</label>
+
+                            <div class="col-md-6">
+                                <input id="key" type="password" class="form-control" name="key" required>
+
+                                    @if (Session::get('checkkey'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ Session::get('checkkey') }}
+                                        </div>
+                                    @endif
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

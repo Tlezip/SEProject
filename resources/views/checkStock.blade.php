@@ -1,6 +1,3 @@
-@extends('home')
-
-@section('content')
 
 
 <div class="component">
@@ -31,25 +28,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($item as $item):
-                     <tr>
-                     	<td class="user-email">{{ $item->ID }}</td>
-                        <td class="user-email">{{ $item->Product }}</td>
-                        <td class="user-phone">{{ $item->Unit }}</td>
-                        <td class="user-mobile">{{ $item->Cost }}</td>
-                        <td class="user-mobile">{{ $item->Price }}</td>
-                        <td class="user-mobile">{{ $item->Category }}</td>
-                        <td class="user-mobile">{{ $item->Quantity }}</td>
-                        <td class="user-mobile">
-                        	<form method = "post" action="{{ url('/profit') }}">	
-		                        <input type="text" class="form-control" name="sold" size="50" placeholder="......." required>
-			                    <input type="hidden" name="_token" value="{{$item->ID}}">	                    
-		                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-		                    </form>	
-		                </td>
-                    </tr>
-                    @endforeach
-                    <BUTTON type="submit" class="btn btn-default"> Submit </BUTTON>
+                	<form method = "post" action="{{ url('/profit') }}">
+	                    @foreach ($item as $item):
+	                    <tr> 
+		                    <td class="user-email">{{ $item->ID }}</td>
+		                    <td class="user-email">{{ $item->Product }}</td>
+	                        <td class="user-phone">{{ $item->Unit }}</td>
+	                        <td class="user-mobile">{{ $item->Cost }}</td>
+	                        <td class="user-mobile">{{ $item->Price }}</td>
+	                        <td class="user-mobile">{{ $item->Category }}</td>
+	                        <td class="user-mobile">{{ $item->Quantity }}</td>
+	                        <td class="user-mobile">
+			                    <input type="text" class="form-control" name="sold{{ $item->ID }}" size="50" placeholder="......." required>
+				                <input type="hidden" name="{{$item->ID}}" value="{{$item->ID}}">	                    
+			                </td>
+	                    </tr> 
+	                    @endforeach
+                    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    	<button type="submit" class="btn btn-default">kuy Submit </button>
+                    </form>	 
                 </tbody>
             </table>
             @if (Session::get('Noitem'))
