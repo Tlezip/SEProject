@@ -158,6 +158,27 @@ ul.alert-dropdown {
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary
 { color: #ffffff; background-color: #888; border-color: #444; }
 
+hr {
+    border-color: #f0630e;
+    border-width: 3px;
+    max-width: 50px;
+}
+hr.light {
+    border-color: white;
+}
+
+.submit {
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+    color: white;
+    background-color: #F05F40;
+}
+.submit:hover,
+.submit:focus {
+    color: #eb3812;
+}
+
 
 
 

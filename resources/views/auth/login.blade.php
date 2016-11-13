@@ -19,6 +19,9 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,14 +32,16 @@
 
 </head>
 
-<body style="background-color: #222">
+<body background="img/bg.jpg" style="background-repeat: no-repeat; font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;">
+
+
 
    <div class="container" style="padding-top: 5%">
-       <div class="text-center" style="font-size: 700%; color: white">
+       <div class="text-center" style="font-size: 700%; color: white; font-family:  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;">
            STOCK ITEM
        </div>
    </div>
-
+    <hr>
    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
    <div class="container" style="padding-top: 20px">
@@ -67,25 +72,14 @@
                                 @endif
                            </div>
 
-                           <!-- Start checkbox -->
-                           <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember">
-                                            <span style="color: white">Remember Me</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End checkbox -->
+
                        </div>
                    </div>
                </fieldset>
                <div class="row">
                    <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
-                       <button id="signInBtn" class="btn btn-lg btn-primary btn-block" type="submit" role="button">Log In</button>
-                       <span class="help-block text-center">Don't have an account? <a href='{{ url('/register') }}'>Sign up</a> now!</span>
+                       <button id="signInBtn" class="submit btn btn-lg  btn-block" type="submit" role="button">Log In</button>
+                       <span class="help-block text-center" style="color: black">Don't have an account? <a href='{{ url('/register') }}' style="color: #F05F40">Sign up</a> now!</span>
                    </div>
                </div>
 
