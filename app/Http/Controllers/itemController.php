@@ -103,9 +103,10 @@ class itemController extends Controller
 
     public function search(Request $search){
         $temp = \DB::table('itemkeep')
+            ->where('shopID','=',Auth::user()->shopid)
             ->where('Product','REGEXP','.*'.$search->input('search').'.*')
             ->get();
-        return redirect('/allItem', ['items' => $temp]);
+        return view('showItem', ['items' => $temp]);
     }
 
     /**

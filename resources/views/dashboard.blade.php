@@ -6,9 +6,9 @@
 <!-- Page Content -->
 <div>
     <div>
-        <div class="col-md-12">
-            <h1 class="page-header">Dashboard</h1>
-        </div
+        <div class="col-md-12" style="padding-top: 2%;">
+            <h2 class="page-header">Dashboard</h2>
+        </div>
     </div>
     <div>
         <div class="col-md-12">
@@ -81,7 +81,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Latest Items</div>
                 <div class="panel-body">
-                    <table class="table table-hover">
+                    <table class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <th>Product</th>

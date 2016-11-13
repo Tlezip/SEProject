@@ -72,7 +72,8 @@
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember"> Remember Me
+                                            <input type="checkbox" name="remember">
+                                            <span style="color: white">Remember Me</span>
                                         </label>
                                     </div>
                                 </div>
@@ -84,7 +85,7 @@
                <div class="row">
                    <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
                        <button id="signInBtn" class="btn btn-lg btn-primary btn-block" type="submit" role="button">Log In</button>
-                       <span class="help-block text-center">Don't have an account? <a href='signup.html'>Sign up</a> now!</span>
+                       <span class="help-block text-center">Don't have an account? <a href='{{ url('/register') }}'>Sign up</a> now!</span>
                    </div>
                </div>
 

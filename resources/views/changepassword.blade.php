@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form class="form-horizontal form-signin" id='login_form' method="post" action="{{ url('/changepassworded') }}" style="padding-top: 50px">
+<form class="form-horizontal form-signin" id='login_form' method="post" action="{{ url('/changepassworded') }}" style="padding-top: 7%;">
 	<fieldset>
 		<!-- Password input-->
 		<div class="form-group{{ $errors->has('oldpassword') ? ' has-error' : '' }}">

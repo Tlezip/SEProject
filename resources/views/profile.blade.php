@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container"style="padding-top: 30px;">
+<div class="container" style="padding-top: 5%;">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-6">
 			<div class="well well-sm">

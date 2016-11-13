@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/index') }}">STOCK ITEM</a>
+                <a class="navbar-brand" href="{{ url('/home') }}">STOCK ITEM</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -109,10 +109,7 @@
                         <a href="{{ url('allItem') }}" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i> All Item</i></a>
                     </li>
                     <li>
-                        <a href="{{ url('check') }}"><i class="fa fa-fw fa-edit"></i> Check strock</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-file"></i> Summary</a>
+                        <a href="{{ url('check') }}"><i class="fa fa-fw fa-edit"></i> Check Stock</a>
                     </li>
 
                 </ul>

@@ -7,7 +7,7 @@
                 <form method = "get" action="{{ url('/search') }}">
                     <div class="col-md-1">
                         <button type="button" class="btn btn-link">
-                        <span class="glyphicon glyphicon-search" aria-hidden="divue" ></span>
+                        <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
                         </button>
                     </div>
                     <div class="col-md-10">
@@ -16,7 +16,7 @@
                     </div>
                 </form>
             </div>
-            <table>
+            <table class="tabledark">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -181,7 +181,7 @@
                             <label for="Quentity">Category:</label>
                              <select id="Category" name="category">
                                  <option value="" selected="selected" disabled="disabled">Choose Category</option>
-                                 <option value=" Assessories"> Assessories</option>
+                                 <option value="Assessories"> Assessories</option>
                                  <option value="Beverages">Beverages</option>
                                  <option value="Book">Book</option>
                                  <option value="Cosmetic">Cosmetic</option>
