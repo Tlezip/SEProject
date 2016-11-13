@@ -79,7 +79,7 @@
                <div class="row">
                    <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
                        <button id="signInBtn" class="submit btn btn-lg  btn-block" type="submit" role="button">Log In</button>
-                       <span class="help-block text-center" style="color: black">Don't have an account? <a href='{{ url('/register') }}' style="color: #F05F40">Sign up</a> now!</span>
+                       <span class="help-block text-center" style="color: ghostwhite">Don't have an account? <a href='{{ url('/register') }}' style="color: black">Sign up</a> now!</span>
                    </div>
                </div>
 
