@@ -201,7 +201,7 @@ class itemController extends Controller
             ->get();
         foreach ($items as $item)
         {
-            if(/*($request->input($item->ID)!= NULL) && */($request->input("sold".$item->ID) != NULL)){
+            if(($request->input($item->ID)!= NULL) && ($request->input("sold".$item->ID) != NULL)){
                 if($request->input('sold'.$item->ID) < $item->Quantity){
                     $table = new \App\profit;
                     $table->itemID = $request->input($item->ID);
