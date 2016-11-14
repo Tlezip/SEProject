@@ -77,6 +77,17 @@ class HomeController extends Controller
             $count += 1;
         }
 
+        $eachProfit = 0;
+        $dbProfit = \DB::table('profit')
+            ->where('shopID','=',Auth::user()->shopid)
+            ->get();
+        if($dbProfit != '[]')
+        {
+            foreach ($dbProfit as $eachitem)
+            {
+                $eachProfit += $eachitem->profit;
+            }
+        }
         $Assessories  = \DB::table('itemkeep')
             ->select('shopID','Quantity','shopID')
             ->where('Category','=','Assessories')
@@ -192,7 +203,7 @@ class HomeController extends Controller
         if($profit<0)
             $profit = 0;
         $cost = $sum2;
-        return view('dashboard', ['count' => $count,'allcat' => $allcat,'cat' => $cat,'profit' => $profit,'cost' => $cost,'items' => $item]);
+        return view('dashboard', ['count' => $count,'allcat' => $allcat,'cat' => $cat,'profit' => $eachProfit,'cost' => $cost,'items' => $item]);
     }
 
 }
