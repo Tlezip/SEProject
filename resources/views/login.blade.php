@@ -46,14 +46,14 @@
                    <div class="row">
                        <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
                            <div class="form-group">
-                               <input type="email" class="form-control" placeholder="Username" name="username" id='username' autofocus>
+                               <input type="email" class="form-control" placeholder="E-MAIL" name="username" id='username' autofocus>
                            </div>
                        </div>
                    </div>
                    <div class="row">
                        <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
                            <div class="form-group">
-                               <input type="password" class="form-control" name="password" placeholder="password" id='passwd'>
+                               <input type="password" class="form-control" name="password" placeholder="PASSWORD" id='passwd'>
                            </div>
                        </div>
                    </div>
@@ -61,7 +61,7 @@
                <div class="row">
                    <div class="col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
                        <a id="signInBtn" class="btn btn-lg btn-primary btn-block" href="home" role="button">Log In</a>
-                       <span class="help-block text-center">Don't have an account? <a href='signup'>Sign up</a> now!</span>
+
                    </div>
                </div>
 

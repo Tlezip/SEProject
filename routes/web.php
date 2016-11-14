@@ -12,24 +12,52 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
-Route::get('/home', function(){
+Route::get('/index', function () {
+    return redirect()->route('login');
+});
+
+/*Route::get('/home', function(){
 	return view('home');
 });
+*/
 
 Route::get('/showItem', function(){
 	return view('showItem');
-});
-Route::get('/login', function(){
-	return view('login');
-});
+})->middleware('auth');
 
-Route::post('/addItem','itemController@store');
 
-Route::get('/allItem','itemController@show');
+Route::get('/changepassword', 'ChangePasswordController@index')->middleware('auth');
 
+Route::post('/changepassworded', 'ChangePasswordController@store')->middleware('auth');
+
+Route::get('/profile', function(){
+	return view('profile');
+})->middleware('auth');
+
+Auth::routes();
+
+Route::post('image-upload','HomeController@imageUploadPost');
+
+Route::get('image-delete','HomeController@imageDelete');
+
+Route::get('/home', 'HomeController@dashStatus');
+
+Route::post('/editItem','itemController@edit');
+
+Route::get('/search','itemController@search');
+
+Route::post('/addItem','itemController@store')->middleware('auth');
+
+Route::get('/allItem','itemController@show')->middleware('auth');
+
+Route::post('/delItem/','itemController@destroy')->middleware('auth');
+
+Route::get('/check','itemController@check')->middleware('auth');
+
+<<<<<<< HEAD
 Route::post('/delItem','itemController@destroy');
 
 Route::get('/search','itemController@search');
@@ -39,3 +67,6 @@ Route::get('/cal','itemController@calcat');
 Route::get('/edit','itemController@edit');
 
 Route::get('/check','itemController@check');
+=======
+Route::post('/profit','itemController@profit')->middleware('auth');
+>>>>>>> c5849905ba63c6ea06d54ff40586a53df771ba54

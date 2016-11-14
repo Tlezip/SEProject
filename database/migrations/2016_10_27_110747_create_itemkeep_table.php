@@ -20,8 +20,9 @@ class CreateItemkeepTable extends Migration
             $table->string('Unit');
             $table->integer('Cost');
             $table->integer('Price');
-            $table->string('Catagory');
-            $table->integer('Quentity');
+            $table->string('Category');
+            $table->integer('Quantity');
+            $table->integer('shopID');
             $table->timestamps();
         });
     }

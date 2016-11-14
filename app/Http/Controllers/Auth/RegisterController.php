@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Session;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -21,7 +21,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+    
     /**
      * Where to redirect users after login / registration.
      *
@@ -47,11 +47,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $adminkey = '12345';
+        if($data['key'] != '12345'){
+            Session::flash('checkkey', 'Admin Key doesn\'t match.');
+        }
         return Validator::make($data, [
-            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'shopid',
+            'shopname',
+            'name',
+            'photoname',
+            'key' => 'admin',
         ]);
+
     }
 
     /**
@@ -63,9 +72,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'shopid' => $data['shopid'],
+            'shopname' => $data['shopname'],
+            'name' => $data['name'],
+            'photoname' => $data['shopname'],
         ]);
     }
 }
