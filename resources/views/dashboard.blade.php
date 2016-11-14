@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">{{ $profit }}</div>
-                                    <div>Future Profits</div>
+                                    <div>Profits</div>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($item as $item)
+                        @foreach ($items as $item)
                             <tr>
                                 <td>{{ $item->Product }}</td>
                                 <td>{{ $item->Category }}</td>

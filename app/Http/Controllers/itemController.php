@@ -80,6 +80,13 @@ class itemController extends Controller
 
     public function edit(Request $request)
     {
+        $this->validate($request, [
+            'product' => 'required|string',
+            'unit' => 'required|string',
+            'cost' => 'required|integer',
+            'price' => 'required|integer',
+        ]);
+
         \DB::table('itemkeep')
             ->where('ID','=',$request->input('ID'))
             ->update(['Product' => $request->input('product')]);

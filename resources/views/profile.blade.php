@@ -9,7 +9,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-md-4">
 						@if (  Auth::user()->photoname  === "avatar" )
-                            <img src="http://placehold.it/300x300"  class="img-rounded img-responsive" />
+                            <img src="http://placehold.it/300?text=Photo"  class="img-rounded img-responsive" />
                         @else
                             <img src="images/{{ Auth::user()->photoname }}" />
                         @endif
