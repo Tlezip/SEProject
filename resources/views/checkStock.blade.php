@@ -42,7 +42,7 @@
                         <td class="user-mobile">{{ $item->Category }}</td>
                         <td class="user-mobile">{{ $item->Quantity }}</td>
                         <td class="user-mobile">
-                            <input type="text" class="form-control" name="sold{{ $item->ID }}" size="50" placeholder="......." required>
+                            <input type="text" class="form-control" name="sold{{ $item->ID }}" size="50" placeholder=".......">
                             <input type="hidden" name="{{$item->ID}}" value="{{$item->ID}}">
                         </td>
                     </tr>

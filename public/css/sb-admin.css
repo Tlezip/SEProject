@@ -9,6 +9,10 @@
 body {
     margin-top: 100px;
     background-color: lightgray;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 @media(min-width:768px) {

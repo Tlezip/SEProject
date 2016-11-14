@@ -193,17 +193,21 @@ class itemController extends Controller
         $items = \DB::table('itemkeep')
             ->where('shopID','=',Auth::user()->shopid)
             ->get();
+
         foreach ($items as $item) {
             $table = new \App\profit;
-            $table->itemID = $request->input($item->ID);
-            $table->shopID = Auth::user()->shopid;
-            $table->profit = $request->input('sold'.$item->ID)*$item->Price;
-            $table->sold = $request->input('sold'.$item->ID);
-            $table->save();
-            \DB::table('itemkeep')
-                ->where('ID','=',$request->input($item->ID))
-                ->update(['Quantity' => $item->Quantity - $request->input('sold'.$item->ID)]);
+            if($request->input("sold".$item->ID) != NULL){
+
+                $table->itemID = $request->input($item->ID);
+                $table->shopID = Auth::user()->shopid;
+                $table->profit = $request->input('sold'.$item->ID)*$item->Price;
+                $table->sold = $request->input('sold'.$item->ID);
+                $table->save();
+                \DB::table('itemkeep')
+                    ->where('ID','=',$request->input($item->ID))
+                    ->update(['Quantity' => $item->Quantity - $request->input('sold'.$item->ID)]);
+            }
         } 
-        return redirect('/allItem');
+       return redirect('/allItem');
     }
 }
