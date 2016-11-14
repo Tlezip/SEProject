@@ -47,24 +47,27 @@
                         </td>
                     </tr>
                     @endforeach
+                    
 
                 </tbody>
             </table>
             @if (Session::get('Noitem'))
                 <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ Session::get('Noitem') }}
                 </div>
+            @elseif (Session::get('sellerror'))
+                <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ Session::get('sellerror') }}
+                </div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
             @else
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
             @endif
         </form>
-            @if (Session::get('sellerror'))
-                <div class="alert alert-danger" role="alert">
-                    {{ Session::get('sellerror') }}
-                </div>
-            @endif
-
     </div>
 
 @endsection

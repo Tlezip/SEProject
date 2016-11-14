@@ -118,11 +118,16 @@ class itemController extends Controller
         return redirect('/allItem');
     }
 
-    public function search(Request $search){
+    public function search(Request $search)
+    {
         $temp = \DB::table('itemkeep')
             ->where('shopID','=',Auth::user()->shopid)
             ->where('Product','REGEXP','.*'.$search->input('search').'.*')
-            ->get();
+            ->get(); 
+        if($temp  == '[]'){ 
+            Session::flash('searchError',$search->input('search').' not found.');
+            return redirect('/allItem');
+        }
         return view('showItem', ['items' => $temp]);
     }
 
@@ -210,7 +215,7 @@ class itemController extends Controller
                 }
                 else
                 {   
-                    Session::flash('sellerror', $item->Product.' not Enough');
+                    Session::flash('sellerror', $item->Product.' not enough.');
                     return redirect('/check');
                 }
 
