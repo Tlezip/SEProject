@@ -10,11 +10,6 @@
 			<label class="col-md-4 control-label">Enter Old Password</label>
 			<div class="col-md-4">
 				<input type="password" name="oldpassword" placeholder="password" id="oldpassword" class="form-control input-md" required>
-                @if (Session::get('oldpasserror'))
-                <div class="alert alert-danger" role="alert">
-                    {{ Session::get('oldpasserror') }}
-                </div>
-                @endif
             </div>
 		</div>
 
@@ -23,11 +18,6 @@
 			<label class="col-md-4 control-label">Enter New Password</label>
 			<div class="col-md-4">
 				<input type="password" name="newpassword" placeholder="New password at least 6 character" id="newpassword" class="form-control input-md" required>
-                @if (Session::get('checkerror'))
-                <div class="alert alert-danger" role="alert">
-                    {{ Session::get('checkerror') }}
-                </div>
-                @endif
             </div>
 		</div>
 
@@ -40,10 +30,22 @@
 			</div>
 		</div>
 
+		@if (Session::get('oldpasserror'))
+            <div class="alert alert-danger col-md-offset-4 col-md-4" role="alert" style="">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ Session::get('oldpasserror') }}
+            </div>
+        @endif
+	    @if (Session::get('checkerror'))
+		    <div class="alert alert-danger col-md-offset-4 col-md-4" role="alert">
+		    	<button type="button" class="close" data-dismiss="alert">&times;</button>
+		        {{ Session::get('checkerror') }}
+		    </div>
+	    @endif
 		<!-- Button (Double) -->
 		<div class="form-group">
 			<label class="col-md-4 control-label"></label>
-			<div class="col-md-8">
+			<div class="col-md-8 col-md-offset-4">
 				<button id="signInBtn" class="btn btn-primary" type="submit" role="button">Change Password</button>
 			</div>
 		</div>

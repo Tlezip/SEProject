@@ -52,11 +52,11 @@ class ChangePasswordController extends Controller
             if($request->input('newpassword') == $request->input('newpassword_confirmation')){
                 \App\User::where('email',Auth::user()->email)
                         ->update (['password' => bcrypt($request->input('newpassword'))]);
-                return view('home');
+                return redirect('home');
             }   
             else{
                 // --------------- Error when New password not match
-                Session::flash('checkerror', 'Check input is incorrect.');
+                Session::flash('checkerror', 'New password doesn\'t match.');
                 return redirect('changepassword');
             }
         }
