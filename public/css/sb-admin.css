@@ -163,9 +163,9 @@ ul.alert-dropdown {
 { color: #ffffff; background-color: #888; border-color: #444; }
 
 hr {
-    border-color: #f0630e;
+    border-color: #d4dde4;
     border-width: 3px;
-    max-width: 50px;
+    max-width: 700px;
 }
 hr.light {
     border-color: white;
@@ -176,11 +176,12 @@ hr.light {
     -moz-transition: all 0.35s;
     transition: all 0.35s;
     color: white;
-    background-color: #F05F40;
+    background-color: #03B5E3;
 }
 .submit:hover,
 .submit:focus {
-    color: #eb3812;
+    color: white;
+    background-color: #03A0E3;
 }
 
 
