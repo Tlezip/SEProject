@@ -182,7 +182,7 @@ class itemController extends Controller
     }
     public function check(Request $request)
     {
-         $item = \DB::table('itemkeep')
+        $item = \DB::table('itemkeep')
             ->where('shopID','=',Auth::user()->shopid)
             ->get();
         return view('checkstock',['item' => $item]);
@@ -190,24 +190,32 @@ class itemController extends Controller
     }
     public function profit(Request $request)
     {
+       $request->session()->forget('sellerror');
         $items = \DB::table('itemkeep')
             ->where('shopID','=',Auth::user()->shopid)
             ->get();
+        foreach ($items as $item)
+        {
+            if(/*($request->input($item->ID)!= NULL) && */($request->input("sold".$item->ID) != NULL)){
+                if($request->input('sold'.$item->ID) < $item->Quantity){
+                    $table = new \App\profit;
+                    $table->itemID = $request->input($item->ID);
+                    $table->shopID = Auth::user()->shopid;
+                    $table->profit = $request->input('sold'.$item->ID)*$item->Price;
+                    $table->sold = $request->input('sold'.$item->ID);
+                    $table->save();
+                    \DB::table('itemkeep')
+                        ->where('ID','=',$request->input($item->ID))
+                        ->update(['Quantity' => $item->Quantity - ($request->input("sold".$item->ID))]);
+                }
+                else
+                {   
+                    Session::flash('sellerror', $item->Product.' not Enough');
+                    return redirect('/check');
+                }
 
-        foreach ($items as $item) {
-            $table = new \App\profit;
-            if($request->input("sold".$item->ID) != NULL){
-
-                $table->itemID = $request->input($item->ID);
-                $table->shopID = Auth::user()->shopid;
-                $table->profit = $request->input('sold'.$item->ID)*$item->Price;
-                $table->sold = $request->input('sold'.$item->ID);
-                $table->save();
-                \DB::table('itemkeep')
-                    ->where('ID','=',$request->input($item->ID))
-                    ->update(['Quantity' => $item->Quantity - $request->input('sold'.$item->ID)]);
             }
         } 
-       return redirect('/allItem');
+        return redirect('/allItem');       
     }
 }

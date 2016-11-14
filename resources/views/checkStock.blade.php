@@ -59,6 +59,11 @@
             <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
             @endif
         </form>
+            @if (Session::get('sellerror'))
+                <div class="alert alert-danger" role="alert">
+                    {{ Session::get('sellerror') }}
+                </div>
+            @endif
 
     </div>
 
