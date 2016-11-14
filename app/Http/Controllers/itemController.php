@@ -131,6 +131,21 @@ class itemController extends Controller
         return view('showItem', ['items' => $temp]);
     }
 
+    public function searchCheck(Request $search)
+    {
+        $temp = \DB::table('itemkeep')
+            ->where('shopID','=',Auth::user()->shopid)
+            ->where('Product','REGEXP','.*'.$search->input('search').'.*')
+            ->get(); 
+        if($temp  == '[]'){ 
+            Session::flash('searchError',$search->input('search').' not found.');
+            return redirect('/check');
+        }
+        return view('checkStock', ['items' => $temp]);
+    }
+
+
+
     /**
      * Display the specified resource.
      *
@@ -190,7 +205,7 @@ class itemController extends Controller
         $item = \DB::table('itemkeep')
             ->where('shopID','=',Auth::user()->shopid)
             ->get();
-        return view('checkstock',['item' => $item]);
+        return view('checkstock',['items' => $item]);
         
     }
     public function profit(Request $request)

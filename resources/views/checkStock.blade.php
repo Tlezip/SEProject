@@ -4,7 +4,7 @@
 
     <div class="component">
         <div class="row" style="margin-top:51px;">
-            <form method = "get" action="{{ url('/search') }}">
+            <form method = "get" action="{{ url('/searchCheck') }}">
                 <div class="col-md-1">
                     <button type="button" class="btn btn-link">
                         <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
@@ -27,12 +27,12 @@
                     <th>Price</th>
                     <th>Catagory</th>
                     <th>Quantity</th>
-                    <th></th>
+                    <th>Item sold</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($item as $item)
+                    @foreach ($items as $item)
                     <tr>
                         <td class="user-email">{{ $item->ID }}</td>
                         <td class="user-email">{{ $item->Product }}</td>
@@ -42,7 +42,7 @@
                         <td class="user-mobile">{{ $item->Category }}</td>
                         <td class="user-mobile">{{ $item->Quantity }}</td>
                         <td class="user-mobile">
-                            <input type="text" class="form-control" name="sold{{ $item->ID }}" size="50" placeholder=".......">
+                            <input type="text" class="form-control" name="sold{{ $item->ID }}" size="50" placeholder="Enter the quantity of item sold">
                             <input type="hidden" name="{{$item->ID}}" value="{{$item->ID}}">
                         </td>
                     </tr>
@@ -63,10 +63,19 @@
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
+            @elseif (Session::get('searchError'))
+                <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ Session::get('searchError') }}
+                </div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
             @else
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-secondary" style="float: right; margin-right: 20px">Submit</button>
             @endif
+
+
         </form>
     </div>
 

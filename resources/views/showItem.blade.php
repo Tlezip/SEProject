@@ -76,7 +76,7 @@
                     </ul>
                 </div>
             @endif
-             @if (Session::get('searchError'))
+            @if (Session::get('searchError'))
                 <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ Session::get('searchError') }}

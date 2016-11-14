@@ -45,9 +45,9 @@ Route::get('image-delete','HomeController@imageDelete');
 
 Route::get('/home', 'HomeController@dashStatus');
 
-Route::post('/editItem','itemController@edit');
+Route::post('/editItem','itemController@edit')->middleware('auth');
 
-Route::get('/search','itemController@search');
+Route::get('/search','itemController@search')->middleware('auth');
 
 Route::post('/addItem','itemController@store')->middleware('auth');
 
@@ -58,3 +58,6 @@ Route::post('/delItem/','itemController@destroy')->middleware('auth');
 Route::get('/check','itemController@check')->middleware('auth');
 
 Route::post('/profit','itemController@profit')->middleware('auth');
+
+Route::get('/searchCheck','itemController@searchCheck')->middleware('auth');
+;
