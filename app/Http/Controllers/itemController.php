@@ -42,6 +42,7 @@ class itemController extends Controller
             'unit' => 'required|string',
             'cost' => 'required|integer',
             'price' => 'required|integer',
+            'category' => 'required',
         ]);
 
         $request->session()->forget('Noitem');
@@ -62,6 +63,7 @@ class itemController extends Controller
             $table->Category = $request->input('category');
             $table->Quantity = $request->input('quantity');
             $table->shopID = Auth::user()->shopid;
+            $table->CostAll = $request->input('cost')*$request->input('quantity');
             $table->save();
             return redirect('/allItem');
         }   
@@ -73,7 +75,14 @@ class itemController extends Controller
                 ->where('Price','=',$request->input('price'))
                 ->where('Category','=',$request->input('category'))
                 ->increment('Quantity',$request->input('quantity'));
-            
+
+            \DB::table('itemkeep')
+                ->where('Product','=',$request->input('product'))
+                ->where('Unit','=',$request->input('unit'))
+                ->where('Cost','=',$request->input('cost'))
+                ->where('Price','=',$request->input('price'))
+                ->where('Category','=',$request->input('category'))
+                ->increment('CostAll',$request->input('cost')*$request->input('quantity')); 
            return redirect('/allItem');
         }
     }
@@ -85,6 +94,7 @@ class itemController extends Controller
             'unit' => 'required|string',
             'cost' => 'required|integer',
             'price' => 'required|integer',
+            'category' => 'required',
         ]);
 
         \DB::table('itemkeep')
